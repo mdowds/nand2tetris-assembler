@@ -5,12 +5,6 @@ import java.util.HashMap;
 
 public class Parsers {
 
-    public static String parseAInstruction(String line) {
-        int value = Integer.parseInt(line.substring(1));
-        String binaryValue = Integer.toBinaryString(value);
-        return "0" + StringUtils.leftPad(binaryValue, 15, "0");
-    }
-
     public static String parseDInstruction(String line) {
         String[] splitLine = line.split("=");
 
@@ -29,6 +23,12 @@ public class Parsers {
         String jump = parseJump(splitLine[1]);
 
         return "111" + a + comp + "000" + jump;
+    }
+
+    public static String parseAInstruction(String line) {
+        int value = Integer.parseInt(line);
+        String binaryValue = Integer.toBinaryString(value);
+        return "0" + StringUtils.leftPad(binaryValue, 15, "0");
     }
 
     private static String parseDest(String dest) {

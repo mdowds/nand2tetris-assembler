@@ -52,4 +52,20 @@ public class Lookups {
 
         return lookup;
     }
+
+    public static HashMap<String, String> symbolTable() {
+        HashMap<String, String> table = new HashMap<String, String>();
+        for (int i=0; i<16; i++){
+            table.put("R" + i, Integer.toString(i));
+        }
+        table.put("SCREEN", "16384");
+        table.put("KBD", "24576");
+        table.put("SP", "0");
+        table.put("LCL", "1");
+        table.put("ARG", "2");
+        table.put("THIS", "3");
+        table.put("THAT", "4");
+
+        return table;
+    }
 }
